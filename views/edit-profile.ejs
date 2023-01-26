@@ -1,0 +1,28 @@
+
+<main class="contenedor contenedor-formularios no-padding">
+    <h1><%- pageName %></h1>
+
+    <form class="default-form" action="/edit-profile" method="POST">
+        <div class="campo">
+            <label>Name</label>
+            <input type="text" name="name" value="<%- user.name %>">
+        </div>
+        
+        <div class="campo descripcion">
+            <label>Who i am</label>
+            <div class="contenedor-editor">
+                <input type="hidden" id="x" name="description" value="<%- user.description %>">
+                <trix-editor input="x"></trix-editor>
+            </div>
+        </div>
+
+        <div class="campo">
+            <label>Email</label>
+            <input type="email" name="email" value="<%- user.email %>">
+        </div>
+
+        <div class="campo enviar">
+            <input type="submit" class="btn btn-rosa" value="Save changes">
+        </div>
+    </form>
+</main>

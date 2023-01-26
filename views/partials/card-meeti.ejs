@@ -1,0 +1,31 @@
+
+<div class="card">
+    <% if(meeti.group.image) { %>
+        <img src="/uploads/groups/<%= meeti.group.image %>">
+    <% } else { %>
+        <img src="/img/meeti.jpg">
+    <% } %>
+
+    <div class="card-texto">
+        <p class="fecha"><%= formatDate(meeti.date, meeti.time) %></p>
+
+        <a href="/meeti/<%= meeti.slug %>">
+            <h3><%- meeti.title %></h3>
+        </a>
+
+        <div class="info-autor">
+            <% if(meeti.user.image) { %>
+                <div class="imagen">
+                    <img src="/uploads/profiles/<%= meeti.user.image %>">
+                </div>
+            <% } else { %>
+                <div class="imagen"></div>
+            <% } %>
+            <div class="informacion">
+                <p>Organized by:</p>
+                <p class="autor"><%= meeti.user.name %></p>
+            </div>
+
+        </div>
+    </div>
+</div>

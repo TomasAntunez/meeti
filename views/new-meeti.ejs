@@ -1,0 +1,95 @@
+
+<main class="contenedor contenedor-formularios">
+    <h1><%= pageName %></h1>
+
+    <form action="/new-meeti" class="default-form" method="POST">
+        <legend>About the Meeti</legend>
+
+        <div class="campo">
+            <label>Group</label>
+
+            <select name="groupId">
+                <option value="" disabled selected>-- Select Group --</option>
+                <% if(groups.length) { %>
+                    <% groups.forEach(group => { %>
+                        <option value="<%= group.id %>"><%= group.name %></option>
+                    <% }); %>
+                <% } %>
+            </select>
+        </div>
+
+        <div class="campo">
+            <label>Title</label>
+            <input type="text" name="title" placeholder="Meeti title">
+        </div>
+
+        <div class="campo">
+            <label>Guest</label>
+            <input type="text" name="guest" placeholder="Guest name">
+        </div>
+
+        <div class="columnas-2 grid">
+            <div class="campo">
+                <label>Date</label>
+                <input type="date" name="date" placeholder="Meeti date">
+            </div>
+
+            <div class="campo">
+                <label>Time</label>
+                <input type="time" name="time" placeholder="Meeti time">
+            </div>
+        </div>
+
+        <div class="campo">
+            <label>Vacancies</label>
+            <input type="number" min="1" name="vacancies" placeholder="Meeti vacancies">
+        </div>
+
+        <div class="campo descripcion">
+            <label>Description</label>
+            <div class="contenedor-editor">
+                <input type="hidden" id="x" name="description">
+                <trix-editor input="x"></trix-editor>
+            </div>
+        </div>
+
+        <legend>Meeti Location</legend>
+
+        <p class="informacion">Move the pin to the exact point</p>
+
+        <div class="campo map">
+            <div id="map"></div>
+        </div>
+
+        <small>The assistant will place an estimated address</small>
+
+        <p class="informacion">Confirm that tha following fields are correct:</p>
+
+        <div class="campo">
+            <label>Address</label>
+            <input type="text" name="address" id="address">
+        </div>
+
+        <div class="campo">
+            <label>City</label>
+            <input type="text" name="city" id="city">
+        </div>
+
+        <div class="campo">
+            <label>State</label>
+            <input type="text" name="state" id="state">
+        </div>
+
+        <div class="campo">
+            <label>Country</label>
+            <input type="text" name="country" id="country">
+        </div>
+
+        <input type="hidden" name="lat" id="lat">
+        <input type="hidden" name="lng" id="lng">
+
+        <div class="campo enviar">
+            <input type="submit" value="Create Meeti" class="btn btn-rosa">
+        </div>
+    </form>
+</main>
